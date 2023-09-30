@@ -1,0 +1,43 @@
+﻿<Window x:Class="Practice2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Здесь могла быть ваша лягушка" SizeToContent="WidthAndHeight" Icon="/favicon.ico" MaxWidth="1280" ResizeMode="CanMinimize">
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Открыть" Click="OpenButtonClick"/>
+                <MenuItem Header="Сохранить" Click="SaveButtonClick"/>
+                <MenuItem Header="Сохранить как" Click="SaveAsButtonClick"/>
+                <MenuItem Header="Выход" Click="ExitButtonClick"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="О программе" Click="AboutButtonClick" />
+            </MenuItem>
+        </Menu>
+        <Grid Margin="0,18,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="Количество чисел" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Center"/>
+            <TextBox x:Name="NTextBox" Text=" " Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Margin="10"/>
+            <Label Content="Массив" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Margin="10" HorizontalAlignment="Center"/>
+            <TextBlock x:Name="PlaceholderTextBlock" Text="Массив ещё не создан" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10"/>
+            <DataGrid x:Name="AwesomeDataGrid" Grid.Column="1" Grid.Row="1" Margin="10" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" GridLinesVisibility="Vertical" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Center" CellEditEnding="ReplaceValueInArray"/>
+            <Label Content="Результат" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+            <TextBox x:Name="ResultTextBox" Text=" " Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" IsReadOnly="True" Margin="10"/>
+            <Button Grid.Column="0" Grid.Row="2" VerticalAlignment="Center" Content="Создать" Click="CreateButtonClick" Margin="10"/>
+            <Button x:Name="FillButton" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Content="Заполнить" Click="FillButtonClick" Margin="10" IsEnabled="False"/>
+            <Button x:Name="CalculateButton" Grid.Column="2" Grid.Row="2" VerticalAlignment="Center" Content="Посчитать" Click="CalculateButtonClick" Margin="10" IsEnabled="False"/>
+        </Grid>
+    </Grid>
+</Window>
