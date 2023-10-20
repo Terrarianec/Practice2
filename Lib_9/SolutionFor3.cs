@@ -1,35 +1,44 @@
 ﻿namespace Lib_9
 {
-    public class SolutionFor3
-    {
-        /// <summary>
-        /// Поиск строки матрицы с наибольшей суммой
-        /// </summary>
-        /// <param name="matrix">Матрица</param>
-        /// <param name="row">Номер строки с наибольшей суммой</param>
-        /// <returns>Наибольшее значение суммы</returns>
-        public static int MaxRowSumIn(int[,] matrix, out int row)
-        {
-            row = 0;
-            int maxSum = int.MinValue;
+	public class SolutionFor3
+	{
+		/// <summary>
+		/// Поиск номера последней из строк матрицы, содержащих максимальное количество одинаковых элементов.
+		/// </summary>
+		/// <param name="matrix">Матрица</param>
+		/// <returns>Номер последней строки с наибольшим количеством одинаковых элементов</returns>
+		public static int FindRowWithMaxSimilarItems(int[,] matrix)
+		{
+			int row = -1;
+			int maxSimilar = 0;
 
-            for (int line = 0; line < matrix.GetLength(0); ++line)
-            {
-                int sum = 0;
+			for (int i = 0; i < matrix.GetLength(0); ++i)
+			{
+				int maxSimilarInCurrentRow = 0;
 
-                for (int column = 0; column < matrix.GetLength(1); ++column)
-                {
-                    sum += matrix[line, column];
-                }
+				for (int j = 0; j < matrix.GetLength(1); ++j)
+				{
+					int currentValue = matrix[i, j];
+					int similarCount = 0;
 
-                if (sum > maxSum)
-                {
-                    maxSum = sum;
-                    row = line;
-                }
-            }
+					for (int k = 0; k < matrix.GetLength(1); ++k)
+					{
+						if (matrix[i, k] == currentValue)
+							++similarCount;
+					}
 
-            return maxSum;
-        }
-    }
+					if (similarCount > maxSimilarInCurrentRow)
+						maxSimilarInCurrentRow = similarCount;
+				}
+
+				if (maxSimilarInCurrentRow >= maxSimilar)
+				{
+					maxSimilar = maxSimilarInCurrentRow;
+					row = i;
+				}
+			}
+
+			return row;
+		}
+	}
 }
