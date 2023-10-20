@@ -127,14 +127,7 @@ namespace LibMas
             {
                 for (int j = 0; j < matrix.GetLength(1); ++j)
                 {
-                    int value;
-
-                    do
-                    {
-                        value = _random.Next(min, max + 1);
-                    } while (value == 0);
-
-                    matrix[i, j] = value;
+                    matrix[i, j] = _random.Next(min, max + 1);
                 }
             }
         }
