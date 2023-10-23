@@ -64,7 +64,7 @@ namespace Practice2
             _array = new int[n];
 
             Vizualize(_array);
-
+            //
             FillButton.IsEnabled = true;
             CalculateButton.IsEnabled = false;
         }
